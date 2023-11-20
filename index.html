@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/index.css">
+
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cloud">
+        <h2>Data Cloud Rain</h2>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="assets/js/script.js"></script>
+    <script>
+      function randomText() {
+        var text = ("!@#$%^&*()_+")
+        letters = text[Math.floor(Math.random() * text.length)];
+        return letters; 
+      }
+      function rain(){
+          let cloud = document.querySelector('.cloud');
+          let e = document.createElement('div');
+          e.classList.add('drop');
+          cloud.appendChild(e);
+          let left = Math.floor(Math.random() * 290)
+          let size = Math.random() * 1.5;
+          let duration = Math.random() * 1;
+
+
+          e.innerText = randomText()
+          e.style.left = left + 'px';
+          e.style.fontSize = 0.5+size+'em'; 
+          e.style.animationDuration = 1+duration+'s';
+          
+        setTimeout(function(){
+          cloud.removeChild(e)
+        }, 2000)
+    }
+      setInterval(function(){
+        rain()
+      },20)
+    </script>
+  </body>
+</html>
